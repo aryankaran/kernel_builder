@@ -12,8 +12,8 @@ function send_zip() {
     ZIP=$(echo AnyKernel3/*.zip)
 
     # Send the zip to telegram through bot
-    curl -F document=@$ZIP "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument" \
-            -F chat_id="${CHAT_ID}" \
+    curl "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument" \
+            -F chat_id="${CHAT_ID}"  -F document=@$ZIP
 
 
 }
