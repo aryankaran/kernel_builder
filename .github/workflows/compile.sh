@@ -3,7 +3,8 @@ ROOT_DIR=$(pwd)
 
 function compile() {
     # export the arch
-    export ARCH=arm64
+    export ARCH=arm 
+    export SUBARCH=arm 
 
     # user and Hostname
     export KBUILD_BUILD_USER=aryan
@@ -13,14 +14,12 @@ function compile() {
     PATH=:"${ROOT_DIR}/clang/bin:${PATH}:${ROOT_DIR}/gcc/bin:${PATH}"
 
     # make the config
-    make O=out onclite-perf_defconfig
+    make O=out TARGET_ARCH=arm gh6_mt6580_defconfig
 
     # Start the build
     make -j$(nproc --all) O=out \
-                    ARCH=arm64 \
-                    CC=clang \
-                    CLANG_TRIPLE=aarch64-linux-gnu- \
-                    CROSS_COMPILE=aarch64-linux-android-
+                    TARGET_ARCH=arm \
+                    CROSS_COMPILE=arm-eabi-
 }
 
 
