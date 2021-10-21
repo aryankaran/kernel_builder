@@ -5,6 +5,10 @@ function compile() {
     # export the arch
     export ARCH=arm64
 
+    # user and Hostname
+    export KBUILD_BUILD_USER=aryan
+    export KBUILD_BUILD_HOST=aryankaran
+
     # make clang/gcc PATH available
     PATH=:"${ROOT_DIR}/clang/bin:${PATH}:${ROOT_DIR}/gcc/bin:${PATH}"
 
