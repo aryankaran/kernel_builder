@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: aryankaran/kernel_xiaomi_onclite
-          ref: new
+          ref: havoc
 
       # Setup the environment
       - name: Setup
