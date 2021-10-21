@@ -22,8 +22,8 @@ jobs:
       - name: Clone the source
         uses: actions/checkout@v2
         with:
-          repository: aryankaran/kernel_xiaomi_onclite
-          ref: new
+          repository: aryan-karan/platform_kernel_xiaomi_msm8917
+          ref: lineage-18.1
 
       # Setup the environment
       - name: Setup
