@@ -4,7 +4,7 @@ DATE_TIME=$(date +"%Y%m%d-%H%M")
 function make_zip() {
     cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3
     cd AnyKernel3
-    zip -r9 Test-Kernel-onclite-${DATE_TIME}.zip *
+    zip -r9 ${FILENAME}-${DATE_TIME}.zip *
     cd ..
 }
 
