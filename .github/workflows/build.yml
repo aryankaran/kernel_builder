@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: aryankaran/kernel_xiaomi_onclite
-          ref: havoc-11
+          ref: havoc
 
       # Setup the environment
       - name: Setup
@@ -40,7 +40,7 @@ jobs:
       # Make zip and Send it to telegram
       - name: Make zip and send
         env:
-          FILENAME : Havoc-Kernel-onclite-4.9.285
+          FILENAME : Havoc-Kernel-onclite-4.9.287
           BOT_TOKEN : ${{secrets.BOT_TOKEN}}
           CHAT_ID : ${{secrets.CHAT_ID}}
         run: |
