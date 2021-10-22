@@ -22,7 +22,7 @@ jobs:
       - name: Clone the source
         uses: actions/checkout@v2
         with:
-          repository: aryankaran/kernel_xiaomi_onclite
+          repository: aryankaran/android_kernel_xiaomi_onclite
           ref: havoc
 
       # Setup the environment
