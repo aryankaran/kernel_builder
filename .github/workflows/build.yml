@@ -38,6 +38,7 @@ jobs:
       # Make zip and Send it to telegram
       - name: Make zip and send
         env:
+          FILENAME : Test-Kernel-onclite-285
           BOT_TOKEN : ${{secrets.BOT_TOKEN}}
           CHAT_ID : ${{secrets.CHAT_ID}}
         run: |
