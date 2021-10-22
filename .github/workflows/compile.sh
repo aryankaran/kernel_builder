@@ -13,7 +13,7 @@ function compile() {
     PATH=:"${ROOT_DIR}/clang/bin:${PATH}:${ROOT_DIR}/gcc/bin:${PATH}"
 
     # make the config
-    make O=out onclite-perf_defconfig
+    make O=out ${DEFCONFIG}
 
     # Start the build
     make -j$(nproc --all) O=out \
