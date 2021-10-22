@@ -32,6 +32,8 @@ jobs:
 
       # Compile the kernel
       - name: Compile
+        env:
+          DEFCONFIG : onclite-perf_defconfig
         run: |
           bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/main/.github/workflows/compile.sh)"
 
@@ -39,7 +41,6 @@ jobs:
       - name: Make zip and send
         env:
           FILENAME : Havoc-Kernel-onclite-4.9.285
-          DEFCONFIG : onclite-perf_defconfig
           BOT_TOKEN : ${{secrets.BOT_TOKEN}}
           CHAT_ID : ${{secrets.CHAT_ID}}
         run: |
