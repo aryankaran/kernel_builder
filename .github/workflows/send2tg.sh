@@ -23,7 +23,7 @@ function send_zip() {
 
     # Send the zip to telegram through bot
     curl "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument?chat_id=${CHAT_ID}" \
-            -F document=@$ZIP -F caption="md5sum: $(md5sum $ZIP | cut -d ' ' -f1)"
+            -F document=@$ZIP -F caption="md5: <code>$(md5sum $ZIP | cut -d ' ' -f1)</code>" -F "parse_mode=HTML"
 
 
 }
