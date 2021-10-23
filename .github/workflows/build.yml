@@ -13,6 +13,8 @@ env:
 # Define default defconfig here
   DEFCONFIG : onclite-perf_defconfig
   device : onclite
+  repo : aryankaran/kernel_xiaomi_onclite
+  reference : havoc
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,8 +29,8 @@ jobs:
       - name: Clone the source
         uses: actions/checkout@v2
         with:
-          repository: aryankaran/kernel_xiaomi_onclite
-          ref: havoc
+          repository: $repo
+          ref: $reference
 
       # Setup the environment
       - name: Setup
