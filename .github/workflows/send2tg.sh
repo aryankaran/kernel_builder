@@ -3,8 +3,15 @@ DATE_TIME=$(date +"%Y%m%d-%H%M")
 
 function make_zip() {
     cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3
-    local kname="$(grep 'CONFIG_LOCALVERSION=' arch/arm64/configs/$DEFCONFIG | cut -d '"' -f2 | sed 's*-**1')"
-    echo -e "\nKernel Name: $kname\n"
+
+# Extract Names from defined values
+    export kname="$(grep 'CONFIG_LOCALVERSION=' arch/arm64/configs/$DEFCONFIG | cut -d '"' -f2 | sed 's*-**1')"
+    export kversion=$(grep -m1 VERSION Makefile | cut -d ' ' -f3).$(grep -m1 PATCHLEVEL Makefile | cut -d ' ' -f3).$(grep -m1 SUBLEVEL Makefile | cut -d ' ' -f3)
+    export FILENAME="$kname-Kernel-$device-$kversion"
+
+    echo -e "\nKernel Name: $kname"
+    echo -e "Kernel Version: $kversion\n"
+
     cd AnyKernel3
     sed s*Kernel_name*$kname* anykernel.sh
     zip -r9 ${FILENAME}-${DATE_TIME}.zip *
