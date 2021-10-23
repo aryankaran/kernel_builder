@@ -4,17 +4,17 @@ name: Compile
 on:
   # Triggers the workflow on push events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ rova ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
 # Define default defconfig here
-  DEFCONFIG : onclite-perf_defconfig
-  device : onclite
-  repo : github.com/aryankaran/kernel_xiaomi_onclite
-  reference : havoc
+  DEFCONFIG : rova_defconfig
+  device : rova
+  repo : github.com/aryan-karan/platform_kernel_xiaomi_msm8917
+  reference : 11
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,8 +29,8 @@ jobs:
       - name: Clone the source
         uses: actions/checkout@v2
         with:
-          repository: aryankaran/kernel_xiaomi_onclite
-          ref: havoc
+          repository: aryan-karan/platform_kernel_xiaomi_msm8917
+          ref: 11
 
       # Setup the environment
       - name: Setup
