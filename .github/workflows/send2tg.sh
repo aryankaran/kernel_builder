@@ -21,11 +21,13 @@ function make_zip() {
 function send_zip() {
     ZIP=$(echo AnyKernel3/*.zip)
 
+    # Download thumbnail
+    curl -L https://github.com/aryankaran/images/raw/major/Android%20Kernel.png --output image
+    
     # Send the zip to telegram through bot
     curl "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument?chat_id=${CHAT_ID}" \
-            -F document=@$ZIP -F caption="md5: <code>$(md5sum $ZIP | cut -d ' ' -f1)</code>" -F "parse_mode=HTML"
-
-
+    -F document=@$ZIP -F caption="md5: <code>$(md5sum $ZIP | cut -d ' ' -f1)</code>" -F "parse_mode=HTML" \
+    -F thumb=@image
 }
 
 # Starts here
