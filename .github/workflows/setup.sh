@@ -16,7 +16,7 @@ function setup () {
     rm clang-r365631c.tar.gz
 
     # Clone AnyKernel3
-    git clone https://github.com/aryankaran/AnyKernel3 -b onclite
+    git clone https://github.com/aryankaran/AnyKernel3 -b $device
 
 }
 
