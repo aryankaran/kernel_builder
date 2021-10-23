@@ -13,7 +13,6 @@ env:
 # Define default defconfig here
   DEFCONFIG : onclite-perf_defconfig
   device : onclite
-  branch : main
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -34,12 +33,12 @@ jobs:
       # Setup the environment
       - name: Setup
         run: |
-          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/$branch/.github/workflows/setup.sh)"
+          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/main/.github/workflows/setup.sh)"
 
       # Compile the kernel
       - name: Compile
         run: |
-          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/$branch/.github/workflows/compile.sh)"
+          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/main/.github/workflows/compile.sh)"
 
       # Make zip and Send it to telegram
       - name: Make zip and send
@@ -47,4 +46,4 @@ jobs:
           BOT_TOKEN : ${{secrets.BOT_TOKEN}}
           CHAT_ID : ${{secrets.CHAT_ID}}
         run: |
-          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/$branch/.github/workflows/send2tg.sh)"
+          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/main/.github/workflows/send2tg.sh)"
