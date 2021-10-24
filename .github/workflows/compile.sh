@@ -3,6 +3,8 @@ ROOT_DIR=$(pwd)
 
 # Where am I
 ls -1hA && pwd
+git pull
+
 export repo_link="$(git remote get-url origin | sed s*https://**)"
 
 function compile() {
