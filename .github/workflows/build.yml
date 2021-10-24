@@ -11,10 +11,8 @@ on:
 
 env:
 # Define default defconfig here
-  DEFCONFIG : rova_defconfig
+  DEFCONFIG : rova_defconfig rolex_defconfig
   device : rova
-  repo : github.com/aryan-karan/platform_kernel_xiaomi_msm8917
-  reference : lineage-18.1-old
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,7 +28,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: aryan-karan/platform_kernel_xiaomi_msm8917
-          ref: lineage-18.1-old
+          ref: lineage-18.1
 
       # Setup the environment
       - name: Setup
