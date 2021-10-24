@@ -3,7 +3,7 @@ ROOT_DIR=$(pwd)
 
 # Where am I
 ls -1hA && pwd
-export repo_link="$(git remote get-url origin)"
+export repo_link="$(git remote get-url origin | sed s*https://**)"
 
 function compile() {
     # export the arch
@@ -32,7 +32,7 @@ function compile() {
 }
 
 function main() {
-for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*https://github.com/**)/branches | grep name | cut -d '"' -f4`;do
+for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*github.com/**)/branches | grep name | cut -d '"' -f4`;do
 git switch $branch
 compile
 bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/aryankaran-patch-1/.github/workflows/send2tg.sh)";done
