@@ -1,11 +1,16 @@
 # Kernel compile script
 ROOT_DIR=$(pwd)
 
+# Tell me the branch
+ls -l1A && pwd
+git branch
+git branch -r
+nproc
+which git
+git remote
+git remote get-url origin
+
 function compile() {
-    # Tell me the branch
-    ls -lhA && pwd
-    git branch
-    git branch -r
     # export the arch
     export ARCH=arm64
 
@@ -31,6 +36,13 @@ function compile() {
                     CROSS_COMPILE=aarch64-linux-android-
 }
 
+function main() {
+for branch in `curl https://api.github.com/repos/$(echo $repo | sed s*github.com/**)/branches | grep name | cut -d '"' -f4`;do
+git switch $branch
+compile
+bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/aryankaran-patch-1/.github/workflows/send2tg.sh)"
+;done
+}
 
 # Starts here
-compile
+main
