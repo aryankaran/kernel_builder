@@ -3,6 +3,7 @@ ROOT_DIR=$(pwd)
 
 function compile() {
     # Tell me the branch
+    ls -lhA && pwd
     git branch
     git branch -r
     # export the arch
