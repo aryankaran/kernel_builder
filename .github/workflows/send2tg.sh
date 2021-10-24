@@ -19,7 +19,7 @@ function make_zip() {
 }
 
 function send_zip() {
-    ZIP="AnyKernel3/$FILENAME"
+    ZIP="AnyKernel3/$FILENAME.zip"
 
     # Download thumbnail
     curl -L https://github.com/aryankaran/images/raw/major/Android%20Kernel.png --output image
