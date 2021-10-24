@@ -2,6 +2,9 @@
 ROOT_DIR=$(pwd)
 
 function compile() {
+    # Tell me the branch
+    git branch
+    git branch -r
     # export the arch
     export ARCH=arm64
 
