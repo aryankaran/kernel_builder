@@ -10,7 +10,7 @@ function compile() {
     export KBUILD_BUILD_HOST=aryankaran
 
     # make clang/gcc PATH available
-    PATH=:"${ROOT_DIR}/clang/bin:${PATH}:${ROOT_DIR}/gcc/bin:${PATH}"
+    PATH=:"${ROOT_DIR}/clang/bin:${PATH}:${ROOT_DIR}/gcc/bin:${PATH}:${ROOT_DIR}/gcc-32/bin:${PATH}"
 
     # arm32 cc
     export CC_FOR_BUILD=clang
@@ -24,6 +24,7 @@ function compile() {
                     CC=clang \
                     CLANG_TRIPLE=aarch64-linux-gnu- \
                     CROSS_COMPILE=aarch64-linux-android-
+                    CROSS_COMPILE_ARM32=arm-linux-androideabi-
 }
 
 
