@@ -14,6 +14,7 @@ function compile() {
 
     # arm32 cc
     export CC_FOR_BUILD=clang
+    export CROSS_COMPILE_ARM32=arm-linux-androideabi-
 
     # make the config
     make O=out ${DEFCONFIG}
@@ -24,7 +25,6 @@ function compile() {
                     CC=clang \
                     CLANG_TRIPLE=aarch64-linux-gnu- \
                     CROSS_COMPILE=aarch64-linux-android-
-                    CROSS_COMPILE_ARM32=arm-linux-androideabi-
 }
 
 
