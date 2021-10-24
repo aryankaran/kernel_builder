@@ -11,8 +11,8 @@ on:
 
 env:
 # Define default defconfig here
-  DEFCONFIG : rova_defconfig
-  device : rova
+  DEFCONFIG : tiare_defconfig
+  device : tiare
   repo : github.com/aryan-karan/platform_kernel_xiaomi_msm8917
   reference : lineage-18.0
 
