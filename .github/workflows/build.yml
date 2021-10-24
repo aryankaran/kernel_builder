@@ -11,7 +11,7 @@ on:
 
 env:
 # Define default defconfig here
-  DEFCONFIG : rova_defconfig
+  DEFCONFIG : msm8937-perf_defconfig
   device : rova
   repo : github.com/aryan-karan/platform_kernel_xiaomi_msm8917
   reference : 11
