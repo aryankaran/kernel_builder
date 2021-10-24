@@ -11,7 +11,7 @@ on:
 
 env:
 # Define default defconfig here
-  DEFCONFIG : X00P_defconfig
+  DEFCONFIG : rova_defconfig
   device : rova
   repo : github.com/aryan-karan/platform_kernel_xiaomi_msm8917
   reference : X00P-4.9
