@@ -35,6 +35,7 @@ function compile() {
 
 function build-send-all() {
 for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*github.com/**)/branches | grep name | cut -d '"' -f4`;do
+export reference="$branch"
 git switch $branch
 compile
 bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/aryankaran-patch-1/.github/workflows/send2tg.sh)" || echo "Failed to compile";done
