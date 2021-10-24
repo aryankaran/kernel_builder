@@ -14,19 +14,19 @@ function make_zip() {
 
     cd AnyKernel3
     sed s*Kernel_name*$kname* anykernel.sh
-    zip -r9 ${FILENAME}-${DATE_TIME}.zip *
+    zip -r9 ../${FILENAME}-${DATE_TIME}.zip *
     cd ..
 }
 
 function send_zip() {
-    ZIP="AnyKernel3/${FILENAME}-${DATE_TIME}.zip"
+    ZIP="${FILENAME}-${DATE_TIME}.zip"
 
     # Download thumbnail
     curl -L https://github.com/aryankaran/images/raw/major/Android%20Kernel.png --output image
     
     # Send the zip to telegram through bot
     curl "https://api.telegram.org/bot${BOT_TOKEN}/sendDocument?chat_id=${CHAT_ID}" \
-    -F document=@$ZIP -F caption="✔ md5 : <code>`echo -e "\n$(md5sum $ZIP | cut -d " " -f1)\n\n🔷 "`</code> sha256 : <code>`echo -e "\n$(md5sum $ZIP | cut -d " " -f1)\n\n💥"`</code> Repo Link: $repo_link `echo -e "\n\n🧲"` Branch Name: <code>$branch </code> `echo -e "\n\n🕒"` Build Time: <code>$(date) </code> `echo -e "\n\n👑"` Kernel Version: <code>$kversion </code> `echo -e "\n\n💦"` defconfig: <code>$DEFCONFIG </code>" -F "parse_mode=HTML" \
+    -F document=@$ZIP -F caption="✔ md5 : <code>`echo -e "\n$(md5sum $ZIP | cut -d " " -f1)\n\n🔷 "`</code> sha256 : <code>`echo -e "\n$(md5sum $ZIP | cut -d " " -f1)\n\n💥"`</code> Repo Link: $repo_link `echo -e "\n\n🧲"` Branch Name: <code>$reference </code> `echo -e "\n\n🕒"` Build Time: <code>$(date) </code> `echo -e "\n\n👑"` Kernel Version: <code>$kversion </code> `echo -e "\n\n💦"` defconfig: <code>$DEFCONFIG </code>" -F "parse_mode=HTML" \
     -F thumb=@image
 }
 
