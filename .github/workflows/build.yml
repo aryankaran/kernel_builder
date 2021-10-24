@@ -35,7 +35,7 @@ jobs:
       # Setup the environment
       - name: Setup
         run: |
-          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/rova/.github/workflows/setup.sh)"
+          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/aryankaran-patch-1/.github/workflows/setup.sh)"
 
       # Compile the kernel
       - name: Compile
@@ -48,4 +48,4 @@ jobs:
           BOT_TOKEN : ${{secrets.BOT_TOKEN}}
           CHAT_ID : ${{secrets.CHAT_ID}}
         run: |
-          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/rova/.github/workflows/send2tg.sh)"
+          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/aryankaran-patch-1/.github/workflows/send2tg.sh)"
