@@ -1,14 +1,9 @@
 # Kernel compile script
 ROOT_DIR=$(pwd)
 
-# Tell me the branch
-ls -l1A && pwd
-git branch
-git branch -r
-nproc
-which git
-git remote
-git remote get-url origin
+# Where am I
+ls -1hA && pwd
+export repo_link="$(git remote get-url origin)"
 
 function compile() {
     # export the arch
@@ -37,11 +32,10 @@ function compile() {
 }
 
 function main() {
-for branch in `curl https://api.github.com/repos/$(echo $repo | sed s*github.com/**)/branches | grep name | cut -d '"' -f4`;do
+for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*https://github.com/**)/branches | grep name | cut -d '"' -f4`;do
 git switch $branch
 compile
-bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/aryankaran-patch-1/.github/workflows/send2tg.sh)"
-;done
+bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/aryankaran-patch-1/.github/workflows/send2tg.sh)";done
 }
 
 # Starts here
