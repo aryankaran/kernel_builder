@@ -35,8 +35,8 @@ jobs:
         run: |
           bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/aryankaran-patch-1/.github/workflows/setup.sh)"
 
-      # Compile the kernel
-      - name: Compile and send
+      # Compile the kernel and send
+      - name: Compile Kernel and send to Tekegram
         env:
           BOT_TOKEN : ${{secrets.BOT_TOKEN}}
           CHAT_ID : ${{secrets.CHAT_ID}}
