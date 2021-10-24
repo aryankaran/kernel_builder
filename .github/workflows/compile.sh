@@ -31,12 +31,12 @@ function compile() {
                     CROSS_COMPILE=aarch64-linux-android-
 }
 
-function main() {
+function build-send-all() {
 for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*github.com/**)/branches | grep name | cut -d '"' -f4`;do
 git switch $branch
 compile
-bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/aryankaran-patch-1/.github/workflows/send2tg.sh)";done
+bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/aryankaran-patch-1/.github/workflows/send2tg.sh)" || echo "Failed to compile";done
 }
 
 # Starts here
-main
+for DEFCONFIG in $DEFCONFIG; do build-send-all; done
