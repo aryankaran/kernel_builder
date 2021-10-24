@@ -12,6 +12,9 @@ function compile() {
     # make clang/gcc PATH available
     PATH=:"${ROOT_DIR}/clang/bin:${PATH}:${ROOT_DIR}/gcc/bin:${PATH}"
 
+    # arm32 cc
+    export CC_FOR_BUILD=clang
+
     # make the config
     make O=out ${DEFCONFIG}
 
@@ -21,7 +24,6 @@ function compile() {
                     CC=clang \
                     CLANG_TRIPLE=aarch64-linux-gnu- \
                     CROSS_COMPILE=aarch64-linux-android-
-                    CROSS_COMPILE_ARM32=aarch64-linux-android-
 }
 
 
