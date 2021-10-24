@@ -35,12 +35,12 @@ jobs:
       # Setup the environment
       - name: Setup
         run: |
-          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/main/.github/workflows/setup.sh)"
+          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/rova/.github/workflows/setup.sh)"
 
       # Compile the kernel
       - name: Compile
         run: |
-          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/main/.github/workflows/compile.sh)"
+          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/rova/.github/workflows/compile.sh)"
 
       # Make zip and Send it to telegram
       - name: Make zip and send
@@ -48,4 +48,4 @@ jobs:
           BOT_TOKEN : ${{secrets.BOT_TOKEN}}
           CHAT_ID : ${{secrets.CHAT_ID}}
         run: |
-          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/main/.github/workflows/send2tg.sh)"
+          bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/rova/.github/workflows/send2tg.sh)"
