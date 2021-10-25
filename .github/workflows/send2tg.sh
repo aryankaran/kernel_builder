@@ -15,6 +15,7 @@ function make_zip() {
     cd AnyKernel3
     sed s*Kernel_name*$kname* anykernel.sh
     zip -r9 ../${FILENAME}-${DATE_TIME}.zip *
+    rm Image.gz-dtb
     cd ..
 }
 
