@@ -1,13 +1,12 @@
 # Kernel compile script
 ROOT_DIR=$(pwd)
 
-# Where am I
-ls -1hA && pwd
-
 export repo_link="$(git remote get-url origin | sed s*https://**)"
 git clone $(git remote get-url origin) aryan
 mv AnyKernel3 aryan
 cd aryan
+# Where am I
+ls -1hA && pwd
 git pull
 
 function compile() {
@@ -38,6 +37,8 @@ function compile() {
 
 function build-send-all() {
 for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*github.com/**)/branches | grep name | cut -d '"' -f4`;do
+export DEFCONFIG="$DEFCONFIG"
+export export device="$device"
 export reference="$branch"
 git switch $branch
 compile || echo "Failed to compile $DEFCONFIG"
