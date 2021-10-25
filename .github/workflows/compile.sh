@@ -5,7 +5,7 @@ ROOT_DIR=$(pwd)
 ls -1hA && pwd
 
 export repo_link="$(git remote get-url origin | sed s*https://**)"
-git clone $repo_link aryan
+git clone $(git remote get-url origin) aryan
 mv AnyKernel3 aryan
 cd aryan
 git pull
