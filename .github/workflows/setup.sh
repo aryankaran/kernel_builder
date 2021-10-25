@@ -22,4 +22,6 @@ function setup () {
 }
 
 # Starts here
+echo $DEFCONFIG
+exit 1
 setup
