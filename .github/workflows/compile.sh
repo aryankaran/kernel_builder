@@ -34,7 +34,7 @@ function compile() {
 }
 
 function build-send-all() {
-for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*github.com/**)/branches | grep name | cut -d '"' -f4`;do
+for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*github.com/**)/branches | grep name | cut -d '"' -f4 | sed s*nethunter**`;do
 export reference="$branch"
 git switch $branch
 compile
