@@ -22,7 +22,7 @@ function compile() {
     PATH=:"${ROOT_DIR}/clang/bin:${PATH}:${ROOT_DIR}/gcc/bin:${PATH}:${ROOT_DIR}/gcc-32/bin:${PATH}"
 
     # arm32 cc
-    export CC_FOR_BUILD=clang
+#    export CC_FOR_BUILD=clang
     export CROSS_COMPILE_ARM32=arm-linux-androideabi-
 
     # make the config
