@@ -26,6 +26,8 @@ function compile() {
 
     # Clean directory before build
     make clean
+    ls -1Ah out
+    rm -rf out
 
     # make the config
     make O=out ${DEFCONFIG}
