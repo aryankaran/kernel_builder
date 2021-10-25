@@ -45,4 +45,4 @@ bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/batch/.gith
 }
 
 # Starts here
-for DEFCONFIG in $DEFCONFIG; do build-send-all; done
+for DEFCONFIG in $CONFIG; do echo using defconfig: $DEFCONFIG &&  build-send-all; done
