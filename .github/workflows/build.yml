@@ -11,7 +11,7 @@ on:
 
 env:
 # Define default defconfig here
-  DEFCONFIG : rova_defconfig rolex_defconfig
+  CONFIG : rova_defconfig rolex_defconfig
   device : rova
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel

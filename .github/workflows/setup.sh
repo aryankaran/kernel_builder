@@ -22,7 +22,7 @@ function setup () {
 }
 
 # Starts here
-echo $DEFCONFIG
-for DEFCONFIG in $DEFCONFIG;do echo $DEFCONFIG;done
+echo $CONFIG
+for DEFCONFIG in $CONFIG;do echo $DEFCONFIG;done
 exit 1
 setup
