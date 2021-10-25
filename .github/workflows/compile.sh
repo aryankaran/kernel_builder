@@ -3,9 +3,12 @@ ROOT_DIR=$(pwd)
 
 # Where am I
 ls -1hA && pwd
-git pull
 
 export repo_link="$(git remote get-url origin | sed s*https://**)"
+git clone $repo_link aryan
+mv AnyKernel3 aryan
+cd aryan
+git pull
 
 function compile() {
     # export the arch
@@ -34,7 +37,7 @@ function compile() {
 }
 
 function build-send-all() {
-for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*github.com/**)/branches | grep name | cut -d '"' -f4 | sed s*nethunter**`;do
+for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*github.com/**)/branches | grep name | cut -d '"' -f4`;do
 export reference="$branch"
 git switch $branch
 compile
