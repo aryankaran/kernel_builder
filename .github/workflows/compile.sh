@@ -40,7 +40,7 @@ function build-send-all() {
 for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*github.com/**)/branches | grep name | cut -d '"' -f4`;do
 export reference="$branch"
 git switch $branch
-compile
+compile || echo "Failed to compile $DEFCONFIG"
 bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/batch/.github/workflows/send2tg.sh)" || echo "Failed to compile";done
 }
 
