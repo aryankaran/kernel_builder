@@ -3,6 +3,8 @@ ROOT_DIR=$(pwd)
 
 # Where am I
 ls -1hA && pwd
+cd aryan/$(echo $repo_link | cut -d / -f5)
+ls -1hA && pwd
 
 function compile() {
     # export the arch
