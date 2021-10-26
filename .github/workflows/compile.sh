@@ -3,7 +3,7 @@ ROOT_DIR=$(pwd)
 
 # Where am I
 ls -1hA && pwd
-cd aryan/$(echo $repo_link | cut -d / -f5)
+cd aryan/$(echo $repo_link | cut -d / -f5 | sed s*.git**)
 ls -1hA && pwd
 
 function compile() {
