@@ -2,9 +2,9 @@
 
 function setup () {
     # Install dependencies
-    sudo apt install bc bash git-core gnupg build-essential \
+    sudo apt update -qq && sudo apt install bc bash git-core gnupg build-essential \
         zip curl make automake autogen autoconf autotools-dev libtool shtool python \
-        m4 gcc libtool zlib1g-dev flex bison libssl-dev
+        m4 gcc libtool zlib1g-dev flex bison libssl-dev -y -qq
     
     # Download gcc
     git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-10.0.0_r47 --depth=1 gcc
