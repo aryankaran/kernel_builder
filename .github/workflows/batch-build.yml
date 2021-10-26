@@ -2,7 +2,7 @@ name: Batch Compile
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push events but only for the main branch
+#   Triggers the workflow on push events but only for the main branch
 #  push:
 #    branches: [ batch ]
 
@@ -15,11 +15,8 @@ env:
   device : mi8937
   repo_link: https://github.com/mi-msm8937/android_kernel_xiaomi_msm8937
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "deploy"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-20.04
   
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -29,12 +26,12 @@ jobs:
         uses: rokibhasansagar/slimhub_actions@main
 
       # Setup the environment
-      - name: Setup
+      - name: Environment Setup
         run: |
           bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/batch/.github/workflows/setup.sh)"
 
       # Compile the kernel and send
-      - name: Compile Kernel and send to Telegram
+      - name: Compile Kernel and upload to Telegram
         env:
           BOT_TOKEN : ${{secrets.BOT_TOKEN}}
           CHAT_ID : ${{secrets.CHAT_ID}}
