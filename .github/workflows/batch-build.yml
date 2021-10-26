@@ -1,4 +1,4 @@
-name: Batch Compile
+name: Compile
 
 # Controls when the action will run. 
 on:
