@@ -18,7 +18,7 @@ on:
         required: true
         default: 'mi8937'
       repo_link_INPUT:
-        description: 'Repo Link'
+        description: 'Repo https Link'
         required: true
         default: 'https://github.com/mi-msm8937/android_kernel_xiaomi_msm8937'
 
