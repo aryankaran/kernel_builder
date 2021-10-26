@@ -42,7 +42,7 @@ function compile() {
 }
 
 function build-send-all() {
-for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*https://github.com/**)/branches | grep name | cut -d '"' -f4`;do
+for branch in `curl https://api.github.com/repos/$(echo $repo_link | sed s*https://github.com/** | sed s*.git**)/branches | grep name | cut -d '"' -f4`;do
 export DEFCONFIG="$DEFCONFIG"
 export export device="$device"
 export reference="$branch"
