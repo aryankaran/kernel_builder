@@ -16,6 +16,11 @@ function setup () {
     tar xvzf clang-r365631c.tar.gz -C clang
     rm clang-r365631c.tar.gz
 
+    pwd && mkdir aryan && cd aryan
+    git clone $repo_link
+    cd $(echo $repo_link | cut -d / -f5)
+    git pull
+    
     # Clone AnyKernel3
     git clone https://github.com/aryankaran/AnyKernel3 -b $device
 
