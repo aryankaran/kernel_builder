@@ -33,7 +33,7 @@ function compile() {
     make O=out ${DEFCONFIG}
 
     # Start the build
-    make -j$(nproc --all) O=out \
+    make -j`expr 2 \* $(nproc --all)` O=out \
                     ARCH=arm64 \
                     CC=clang \
                     CLANG_TRIPLE=aarch64-linux-gnu- \
