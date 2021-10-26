@@ -14,7 +14,7 @@ on:
         required: true
         default: 'mi8937_defconfig'
       device_INPUT:
-        description: 'Device codename'
+        description: 'Device codename must be a  branch of AK3 repo'
         required: true
         default: 'mi8937'
       repo_link_INPUT:
