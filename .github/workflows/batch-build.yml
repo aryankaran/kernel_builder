@@ -8,12 +8,24 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      CONFIG_INPUT:
+        description: 'List of defconfigs to build'
+        required: true
+        default: 'mi8937_defconfig'
+      device_INPUT:
+        description: 'Device codename'
+        required: true
+        default: 'mi8937'
+      repo_link_INPUT:
+        description: 'Repo Link'
+        required: true
+        default: 'https://github.com/mi-msm8937/android_kernel_xiaomi_msm8937'
 
 env:
-# Define default defconfig here
-  CONFIG : mi8937_defconfig
-  device : mi8937
-  repo_link: https://github.com/mi-msm8937/android_kernel_xiaomi_msm8937
+  CONFIG : ${{ github.event.inputs.CONFIG_INPUT }}
+  device : ${{ github.event.inputs.device_INPUT }}
+  repo_link: ${{ github.event.inputs.repo_link_INPUT }}
 
 jobs:
   build:
@@ -22,7 +34,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Cleaning Up Runner
+      - name: CleanUp Runner
         uses: rokibhasansagar/slimhub_actions@main
 
       # Setup the environment
