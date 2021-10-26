@@ -1,13 +1,8 @@
 # Kernel compile script
 ROOT_DIR=$(pwd)
 
-export repo_link="$(git remote get-url origin | sed s*https://**)"
-git clone $(git remote get-url origin) aryan
-mv AnyKernel3 aryan
-cd aryan
 # Where am I
 ls -1hA && pwd
-git pull
 
 function compile() {
     # export the arch
@@ -29,6 +24,10 @@ function compile() {
     ls -1Ah out
     rm -rf out
 
+    # Tell me free space before each build
+    df -h
+    free -h
+    
     # make the config
     make O=out ${DEFCONFIG}
 
