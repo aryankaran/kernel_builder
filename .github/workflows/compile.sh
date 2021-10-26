@@ -22,7 +22,6 @@ function compile() {
     export CROSS_COMPILE_ARM32=arm-linux-androideabi-
 
     # Clean directory before build
-    make clean
     ls -1Ah out
     rm -rf out
 
@@ -48,7 +47,7 @@ export export device="$device"
 export reference="$branch"
 git switch $branch
 compile || echo "Failed to compile $DEFCONFIG"
-bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/batch/.github/workflows/send2tg.sh)" || echo "Failed to compile";done
+bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/batch/.github/workflows/send2tg.sh)" || echo "Failed to Send to telegram";done
 }
 
 # Starts here
