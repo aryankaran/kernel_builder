@@ -47,6 +47,7 @@ export export device="$device"
 export reference="$branch"
 git switch $branch
 compile || echo "Failed to compile $DEFCONFIG"
+sleep 40s
 bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/batch/.github/workflows/send2tg.sh)" || echo "Failed to Send to telegram";done
 }
 
