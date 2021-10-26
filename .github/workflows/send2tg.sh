@@ -13,7 +13,7 @@ function make_zip() {
     echo -e "Kernel Version: $kversion\n"
 
     cd AnyKernel3
-    sed s*Kernel_name*$kname* anykernel.sh
+    sed s*Kernel_name*$kname* anykernel.sh -i
     zip -r9 ../${FILENAME}-${DATE_TIME}.zip *
     rm Image.gz-dtb
     cd ..
