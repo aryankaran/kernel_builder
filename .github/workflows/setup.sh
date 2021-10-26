@@ -3,7 +3,7 @@
 function setup () {
     # Install dependencies
     sudo apt update -qq && sudo apt install bc bash git-core gnupg build-essential \
-        zip curl make automake autogen autoconf autotools-dev libtool shtool python \
+        zip curl make automake autogen autoconf autotools-dev ccache libtool shtool python \
         m4 gcc libtool zlib1g-dev flex bison libssl-dev -y -qq
     
     # Download gcc
