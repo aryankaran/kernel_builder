@@ -29,6 +29,9 @@ function compile() {
     df -h
     free -h
     
+    export USE_CCACHE=1
+    export CCACHE_EXEC=$(which ccache)
+    
     # make the config
     make O=out ${DEFCONFIG}
 
@@ -47,6 +50,9 @@ export export device="$device"
 export reference="$branch"
 git switch $branch
 compile || echo "Failed to compile $DEFCONFIG"
+echo -e "\n\n\nccache stats\n\n"
+ccache -s
+ccache -z
 sleep 40s
 bash -c "$(wget -O- https://github.com/aryankaran/kernel_builder/raw/batch/.github/workflows/send2tg.sh)" || echo "Failed to Send to telegram";done
 }
