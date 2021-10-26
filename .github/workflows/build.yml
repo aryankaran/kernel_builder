@@ -1,10 +1,10 @@
-name: Compile
+name: Batch Compile
 
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push events but only for the main branch
-  push:
-    branches: [ batch ]
+#  push:
+#    branches: [ batch ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -13,22 +13,20 @@ env:
 # Define default defconfig here
   CONFIG : mi8937_defconfig
   device : mi8937
+  repo_link: https://github.com/mi-msm8937/android_kernel_xiaomi_msm8937
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "deploy"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
   
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Clone the source
-        uses: actions/checkout@v2
-        with:
-          repository: mi-msm8937/android_kernel_xiaomi_msm8937
-          ref: a12
+      - name: Cleaning Up Runner
+        uses: rokibhasansagar/slimhub_actions@main
 
       # Setup the environment
       - name: Setup
